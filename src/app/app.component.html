@@ -1,0 +1,6 @@
+<h1>Hello</h1>
+
+<h2>Users and their galleries</h2>
+@for (user of users; track user.album.id) {
+  <div>User {{ user.name }} has album with a title "{{ user.album.title }}".</div>
+}
