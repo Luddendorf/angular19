@@ -1,6 +1,47 @@
+<div class="container">
 <h1>Hello</h1>
 
 <h2>Users and their galleries</h2>
-@for (user of users; track user.album.id) {
+<!-- @for (user of users; track user.album.id) {
   <div>User {{ user.name }} has album with a title "{{ user.album.title }}".</div>
-}
+} -->
+
+<table mat-table [dataSource]="dataSource" matSort
+  (matSortChange)="onSort($event)" class="mat-elevation-z8">
+
+  <!-- Name column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+      Name</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <!-- User name column -->
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by user's name">User name</th>
+    <td mat-cell *matCellDef="let element">{{element.username}}</td>
+  </ng-container>
+
+  <!-- Phone column -->
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by phone">
+      Phone</th>
+    <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+  </ng-container>
+
+  <!-- Company name column -->
+  <ng-container matColumnDef="companyName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by company name">Company</th>
+    <td mat-cell *matCellDef="let element">{{element.company.name}}</td>
+  </ng-container>
+
+    <!-- Album title column -->
+    <ng-container matColumnDef="albumTitle">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by album title">Album</th>
+      <td mat-cell *matCellDef="let element">{{element.album.title}}</td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
