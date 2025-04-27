@@ -5,10 +5,12 @@ import { Subscription } from 'rxjs';
 import { AppService } from './app.service';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { CallerComponent } from './components/caller/caller.component';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 @Component({
   selector: 'app-root',
-  imports: [MatTableModule, MatSortModule],
+  imports: [MatTableModule, MatSortModule, CallerComponent, TicketComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

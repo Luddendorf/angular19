@@ -1,0 +1,35 @@
+<div>
+    <form [formGroup]="ticketForm" class="ticket-form">
+        <div class="field">
+            <input type="text" placeholder="Main passenger" formControlName="mainPassenger" />
+        </div>
+        <div class="field">
+            <button (click)="addPet()">Add pet</button>
+        </div>
+        <div class="pets">
+            <ng-container formArrayName="pets">
+                <ng-container *ngFor="let petForm of pets.controls; let i = index">
+                    <div class="row" [formGroup]="petForm">
+                        <input formControlName="name" placeholder="Pet name">
+                        <select formControlName="size" name="pets" id="pet-size">
+                            <option value="">--Please choose Your pet size--</option>
+                            <option value="15 cm">15 cm</option>
+                            <option value="40 cm">40 cm</option>
+                            <option value="75 cm">75 cm</option>
+                            <option value="120 cm">120 cm</option>
+                            <option value="150 cm">150 cm</option>
+                            <option value="250 cm">250 cm</option>
+                          </select>
+                        <div class="field">
+                            <button (click)="removePet(i)">Remove pet</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+            <!-- @for (comment of userComments; track comment.body) {
+                <div class="final-info-item">User with email {{ comment.email }} wrote a comment "{{ comment.body }}".</div>
+              } -->
+        </div>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+.container {
+    padding: 40px 0 0 0;
+}
+
+.final-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    min-height: 100px;
+    border: 1px solid black;
+    
+    &-item {
+      padding: 10px;
+    }
+}
